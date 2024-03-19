@@ -64,6 +64,11 @@
     6. Put the most relevant 1-3 facts into the prompt along with the user's questions
 """
 
+# EmbeddingsRedundantFilter
+"""
+take set of docs and calculate and compare redundant and filter that
+"""
+
 from langchain.document_loaders import TextLoader
 from langchain.text_splitter import CharacterTextSplitter
 from langchain.embeddings import OpenAIEmbeddings
@@ -103,7 +108,6 @@ db = Chroma.from_documents(
 
 results = db.similarity_search(
     "What is an interesting fact about English language ?",
-    k=1
 )
 
 for result in results:
